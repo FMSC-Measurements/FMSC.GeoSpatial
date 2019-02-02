@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace FMSC.GeoSpatial.NMEA.Sentences
 {
@@ -111,8 +112,11 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
 
     public enum Fix
     {
+        [Description("No Fix")]
         NoFix = 1,
+        [Description("2D")]
         _2D = 2,
+        [Description("DD")]
         _3D = 3
     }
 

@@ -1,6 +1,7 @@
 ﻿using FMSC.GeoSpatial.NMEA.Sentences.Base;
 using FMSC.GeoSpatial.Types;
 using System;
+using System.ComponentModel;
 using System.Globalization;
 
 namespace FMSC.GeoSpatial.NMEA.Sentences
@@ -75,10 +76,12 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
 
     public enum GpsFixType
     {
+        [Description("No Fix")]
         NoFix = 0,
         GPS = 1,
         DGPS = 2,
         PPS = 3,
+        [Description("Float RTK")]
         FloatRTK = 5,
         RTK = 4,
         Estimated = 6,
