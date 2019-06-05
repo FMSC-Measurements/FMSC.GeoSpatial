@@ -46,18 +46,34 @@ namespace FMSC.GeoSpatial.NMEA
 
 
 
-        public bool IsValid
-        {
-            get
-            {
-                return ggaIsValidated && ggaIsValid &&
+        public bool IsValid => ggaIsValidated && ggaIsValid &&
                     gsaIsValidated && gsaIsValid &&
                     rmcIsValidated && rmcIsValid &&
                     gsvIsValidated && gsvIsValid;
+
+        public bool IsFull => rmc.Count > 0 && gsa.Count > 0 && gga.Count > 0 && GsvIsFull;
+
+        private bool GsvIsFull
+        {
+            get
+            {
+                bool isFull = true;
+                int msgCount = 0, firstTotalMsgCount = 0;
+
+                foreach (GSVSentence s in gsv.Values)
+                {
+                    if (!s.HasAllMessages)
+                        isFull = false;
+
+                    if (firstTotalMsgCount < 1)
+                        firstTotalMsgCount = s.TotalMessageCount;
+
+                    msgCount += s.MessageCount;
+                }
+
+                return isFull || (msgCount > 0 && msgCount == firstTotalMsgCount);
             }
         }
-        public bool IsFull { get { return rmc.Count > 0 && gsa.Count > 0 && gga.Count > 0 && GsvIsFull; } }
-        private bool GsvIsFull { get { return gsv.Count > 0 && gsv.Values.All(s => s.HasAllMessages); } }
 
 
         public bool HasPosition

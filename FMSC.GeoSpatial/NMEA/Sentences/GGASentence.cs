@@ -11,7 +11,7 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
     {
         protected static readonly string[] GGATimeFormatters = new string[] { "HHmmss.fff", "HHmmss.ff", "HHmmss.f", "HHmmss" };
 
-        public override SentenceID SentenceID { get; } = SentenceID.GGA;
+        public override SentenceID SentenceID => SentenceID.GGA;
 
         public DateTime FixTime { get; protected set; }
         public GpsFixType FixQuality { get; protected set; }

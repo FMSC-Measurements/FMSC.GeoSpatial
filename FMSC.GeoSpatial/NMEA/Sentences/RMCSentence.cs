@@ -9,7 +9,7 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
     {
         protected static readonly string[] RMCTimeFormatters = new string[] { "HHmmss.fff ddMMyy", "HHmmss.ff ddMMyy", "HHmmss.f ddMMyy", "HHmmss ddMMyy" };
 
-        public override SentenceID SentenceID { get; } = SentenceID.RMC;
+        public override SentenceID SentenceID => SentenceID.RMC;
 
         public DateTime FixTime { get; protected set; }
         public Status Status { get; protected set; }

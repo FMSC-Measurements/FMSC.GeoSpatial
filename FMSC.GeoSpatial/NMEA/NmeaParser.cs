@@ -39,8 +39,8 @@ namespace FMSC.GeoSpatial.NMEA
             if (burst == null)
                 burst = new TNmeaBurst();
 
-            try
-            {
+            //try
+            //{
                 TalkerID tid = NmeaIDTools.ParseTalkerID(nmea);
 
                 if (UsedTalkerIDs.Contains(tid))
@@ -53,11 +53,11 @@ namespace FMSC.GeoSpatial.NMEA
 
                     usedNmea = true;
                 }
-            }
-            catch (ExcessiveStringException e)
-            {
-                Debug.WriteLine(e.Message, "NmeaParser:Parse");
-            }
+            //}
+            //catch (ExcessiveStringException e)
+            //{
+            //    Debug.WriteLine(e.Message, "NmeaParser:Parse");
+            //}
 
             if (burst.IsFull)
             {

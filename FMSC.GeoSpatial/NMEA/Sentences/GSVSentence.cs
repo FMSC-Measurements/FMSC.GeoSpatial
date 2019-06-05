@@ -8,7 +8,7 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
 {
     public class GSVSentence : MultiSentence
     {
-        public override SentenceID SentenceID { get; } = SentenceID.GSV;
+        public override SentenceID SentenceID => SentenceID.GSV;
 
         public int NumberOfSatellitesInView { get; protected set; }
 

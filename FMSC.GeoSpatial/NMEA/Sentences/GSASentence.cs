@@ -9,7 +9,7 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
     [Serializable]
     public class GSASentence : NmeaSentence
     {
-        public override SentenceID SentenceID { get; } = SentenceID.GSA;
+        public override SentenceID SentenceID => SentenceID.GSA;
 
         public Mode Mode { get; protected set; }
         public Fix Fix { get; protected set; }
