@@ -116,7 +116,7 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
         NoFix = 1,
         [Description("2D")]
         _2D = 2,
-        [Description("DD")]
+        [Description("3D")]
         _3D = 3
     }
 
