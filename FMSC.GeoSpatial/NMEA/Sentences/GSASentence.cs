@@ -112,6 +112,8 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
 
     public enum Fix
     {
+        [Description("Unknown")]
+        Unknown = 0,
         [Description("No Fix")]
         NoFix = 1,
         [Description("2D")]
@@ -126,6 +128,8 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
         {
             switch (str.ToLower())
             {
+                case "0":
+                case "unknown": return Fix.Unknown;
                 case "1":
                 case "noFix":
                 case "no Fix":
@@ -142,10 +146,11 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
         {
             switch (Fix)
             {
+                case Fix.Unknown: return "Unknown";
                 case Fix.NoFix: return "No Fix";
                 case Fix._2D: return "2D";
                 case Fix._3D: return "3D";
-                default: throw new Exception();
+                default: throw new Exception("Invalid Fix Value");
             }
         }
 
@@ -153,10 +158,11 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
         {
             switch (Fix)
             {
+                case Fix.Unknown: return "0 (Unknown)";
                 case Fix.NoFix: return "1 (No Fix)";
                 case Fix._2D: return "2 (2D)";
                 case Fix._3D: return "3 (3D)";
-                default: throw new Exception();
+                default: throw new Exception("Invalid Fix Value");
             }
         }
     }
