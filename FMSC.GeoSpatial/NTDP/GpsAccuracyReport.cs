@@ -5,11 +5,11 @@ using System.Net;
 using System.Text;
 using System.Xml.Linq;
 
-namespace FMSC.GeoSpatial.MTDC
+namespace FMSC.GeoSpatial.NTDP
 {
     public class GpsAccuracyReport
     {
-        public const string GpsTestsUrl = @"https://www.fs.fed.us/database/gps/mtdcrept/accuracy/gpsTests.xml";
+        public const string GpsTestsUrl = @"https://www.fs.usda.gov/database/gps/mtdcrept/accuracy/gpsTests.xml";
 
         public ReadOnlyCollection<Manufacturer> Manufacturers { get; }
 
