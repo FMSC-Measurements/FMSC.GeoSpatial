@@ -16,13 +16,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="FMSC.Core">
-      <HintPath>..\..\libs\FMSC.Core.dll</HintPath>
-    </Reference>
+    <Compile Remove="NMEA41\**" />
+    <EmbeddedResource Remove="NMEA41\**" />
+    <None Remove="NMEA41\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NMEA41\" />
+    <Reference Include="FMSC.Core">
+      <HintPath>..\..\libs\FMSC.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

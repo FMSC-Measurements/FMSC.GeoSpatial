@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FMSC.GeoSpatial
 {
@@ -55,10 +56,12 @@ namespace FMSC.GeoSpatial
 
             public Extent Build()
             {
-                double north = -90, south = 90, east = -180, west = 180;
+                double north, south, east, west;
 
                 if (lats.Count < 1)
                     throw new Exception("No positions");
+
+                north = south = lats[0];
 
                 foreach (double lat in lats)
                 {
@@ -68,6 +71,8 @@ namespace FMSC.GeoSpatial
                     if (lat < south)
                         south = lat;
                 }
+
+                east = west = lons[0];
 
                 foreach (double lon in lons)
                 {
