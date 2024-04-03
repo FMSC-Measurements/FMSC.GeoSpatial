@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Xml.Linq;
+using FMSC.Core.Utilities;
 
 namespace FMSC.GeoSpatial.NTDP
 {
@@ -25,7 +26,7 @@ namespace FMSC.GeoSpatial.NTDP
         public static GpsAccuracyReport Retrieve()
         {
             byte[] data;
-            using (WebClient webClient = new WebClient())
+            using (WebClientEx webClient = new WebClientEx(3))
                 data = webClient.DownloadData(GpsTestsUrl);
 
             return new GpsAccuracyReport(Encoding.GetEncoding("Windows-1252").GetString(data));
@@ -33,7 +34,7 @@ namespace FMSC.GeoSpatial.NTDP
 
         public static void DownloadGpsTests(string fileName)
         {
-            using (WebClient webClient = new WebClient())
+            using (WebClientEx webClient = new WebClientEx(3))
                 webClient.DownloadFile(GpsTestsUrl, fileName);
         }
 
