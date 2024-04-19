@@ -81,9 +81,9 @@ namespace FMSC.GeoSpatial.NMEA.Sentences
         GPS = 1,
         DGPS = 2,
         PPS = 3,
+        RTK = 4,
         [Description("Float RTK")]
         FloatRTK = 5,
-        RTK = 4,
         Estimated = 6,
         Manual = 7,
         Simulation = 8
