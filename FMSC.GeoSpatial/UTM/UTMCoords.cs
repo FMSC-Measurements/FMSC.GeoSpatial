@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMSC.Core;
+using System;
 
 namespace FMSC.GeoSpatial.UTM
 {
@@ -17,5 +18,8 @@ namespace FMSC.GeoSpatial.UTM
             Y = y;
             Zone = zone;
         }
+        
+        
+        public Point ToPoint() => new Point(X, Y);
     }
 }
