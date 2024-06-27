@@ -8,7 +8,7 @@ namespace FMSC.GeoSpatial
         South = 1
     }
 
-    public static class NorthSouthExtentions
+    public static class NorthSouthEx
     {
         public static String ToStringAbv(this NorthSouth northSouth)
         {
@@ -39,5 +39,7 @@ namespace FMSC.GeoSpatial
 
             throw new Exception("Unknown NorthSouth");
         }
+
+        public static NorthSouth FromLatitude(this double latitude) => latitude >= 0 ? NorthSouth.North : NorthSouth.South;
     }
 }

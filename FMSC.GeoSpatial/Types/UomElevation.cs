@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FMSC.GeoSpatial.Types
+namespace FMSC.GeoSpatial
 {
     public enum UomElevation
     {

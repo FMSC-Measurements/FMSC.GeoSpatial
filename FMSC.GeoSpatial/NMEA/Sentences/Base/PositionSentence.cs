@@ -1,5 +1,4 @@
-﻿using FMSC.GeoSpatial.Types;
-using System;
+﻿using System;
 
 namespace FMSC.GeoSpatial.NMEA.Sentences.Base
 {

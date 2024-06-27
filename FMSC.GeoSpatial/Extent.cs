@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FMSC.GeoSpatial
 {
@@ -11,10 +10,10 @@ namespace FMSC.GeoSpatial
         public Position SouthWest { get; set; }
         public Position Center { get; set; }
 
-        public Double North { get { return NorthEast.Latitude.toSignedDecimal(); } }
-        public Double South { get { return SouthWest.Latitude.toSignedDecimal(); } }
-        public Double East { get { return NorthEast.Longitude.toSignedDecimal(); } }
-        public Double West { get { return SouthWest.Longitude.toSignedDecimal(); } }
+        public Double North => NorthEast.Latitude;
+        public Double South => SouthWest.Latitude;
+        public Double East => NorthEast.Longitude;
+        public Double West => SouthWest.Longitude;
 
 
         public Extent(Position northEast, Position southWest)
@@ -44,8 +43,8 @@ namespace FMSC.GeoSpatial
 
             public void Include(Position position)
             {
-                lats.Add(position.Latitude.toSignedDecimal());
-                lons.Add(position.Longitude.toSignedDecimal());
+                lats.Add(position.Latitude);
+                lons.Add(position.Longitude);
             }
 
             public void Include(Extent extent)

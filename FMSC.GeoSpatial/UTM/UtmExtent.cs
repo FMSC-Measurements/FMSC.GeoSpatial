@@ -10,27 +10,33 @@ namespace FMSC.GeoSpatial.UTM
         public UTMCoords NorthEast { get; set; }
         public UTMCoords SouthWest { get; set; }
         public Int32 Zone { get; private set; }
+        public Datum Datum { get; private set; }
 
-        public Double North { get { return NorthEast.Y; } }
-        public Double South { get { return SouthWest.Y; } }
-        public Double East { get { return NorthEast.X; } }
-        public Double West { get { return SouthWest.X; } }
+        public Double North => NorthEast.Y;
+        public Double South => SouthWest.Y;
+        public Double East => NorthEast.X;
+        public Double West => SouthWest.X;
 
         public UtmExtent(UTMCoords northEast, UTMCoords southWest)
         {
             if (northEast.Zone != southWest.Zone)
                 throw new Exception("Mismatched Zone");
 
+            if (northEast.Datum != southWest.Datum)
+                throw new Exception("Mismatched Datum");
+
             this.NorthEast = northEast;
             this.SouthWest = southWest;
             this.Zone = northEast.Zone;
+            this.Datum = northEast.Datum;
         }
 
-        public UtmExtent(double north, double east, double south, double west, int zone)
+        public UtmExtent(double north, double east, double south, double west, int zone, Datum datum = Datum.WGS84)
         {
-            this.NorthEast = new UTMCoords(east, north, zone);
-            this.SouthWest = new UTMCoords(west, south, zone);
+            this.NorthEast = new UTMCoords(east, north, datum, zone);
+            this.SouthWest = new UTMCoords(west, south, datum, zone);
             this.Zone = zone;
+            this.Datum = datum;
         }
 
 
@@ -39,10 +45,12 @@ namespace FMSC.GeoSpatial.UTM
             List<double> xpos = new List<double>();
             List<double> ypos = new List<double>();
             int zone;
+            Datum datum;
 
-            public Builder(int zone)
+            public Builder(int zone, Datum datum = Datum.WGS84)
             {
                 this.zone = zone;
+                this.datum = datum;
             }
 
             public void Include(double x, double y)
@@ -68,6 +76,9 @@ namespace FMSC.GeoSpatial.UTM
                 if (position.Zone != zone)
                     throw new Exception("Mismatched Zone");
 
+                if (position.Datum != datum)
+                    throw new Exception("Mismatched Datum");
+
                 xpos.Add(position.X);
                 ypos.Add(position.Y);
             }
@@ -81,6 +92,9 @@ namespace FMSC.GeoSpatial.UTM
             public void Include(UtmExtent extent)
             {
                 if (extent.NorthEast.Zone != zone || extent.SouthWest.Zone != zone)
+                    throw new Exception("Mismatched Zone");
+
+                if (extent.NorthEast.Datum != datum || extent.SouthWest.Datum != datum)
                     throw new Exception("Mismatched Zone");
 
                 xpos.Add(extent.East);
@@ -123,7 +137,7 @@ namespace FMSC.GeoSpatial.UTM
                         west = x;
                 }
 
-                return new UtmExtent(north, east, south, west, zone);
+                return new UtmExtent(north, east, south, west, zone, datum);
             }
         }
     }

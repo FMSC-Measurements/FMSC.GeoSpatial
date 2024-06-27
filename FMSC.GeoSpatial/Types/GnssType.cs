@@ -1,4 +1,4 @@
-﻿namespace FMSC.GeoSpatial.Types
+﻿namespace FMSC.GeoSpatial
 {
     public enum GnssType
     {

@@ -1,62 +1,40 @@
-﻿using System;
+﻿using FMSC.Core;
+using System;
 
 namespace FMSC.GeoSpatial
 {
     [Serializable]
     public class Position
     {
-        public Latitude Latitude { get; set; } = new Latitude(0);
-        public Longitude Longitude { get; set; } = new Longitude(0);
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
-        public bool IsNorth { get { return Latitude.Hemisphere == NorthSouth.North; } }
-        public bool IsWest { get { return Longitude.Hemisphere == EastWest.West; } }
+        public Latitude LatitudeDMS => new Latitude(Latitude);
+        public Longitude LongitudeDMS => new Longitude(Longitude);
+
+
+        public bool IsNorth => Latitude >= 0;
+        public bool IsWest => Longitude < 0;
+
+        public NorthSouth LatDir => IsNorth ? NorthSouth.North : NorthSouth.South;
+        public EastWest LonDir => IsWest ? EastWest.West : EastWest.East;
 
 
         public Position() { }
 
-        public Position(Position position)
-        {
-            this.Latitude = position.Latitude;
-            this.Longitude = position.Longitude;
-        }
+        public Position(Position position) : this(position.Latitude, position.Longitude) { }
 
-        public Position(Latitude latitude, Longitude longitude)
+        public Position(Latitude latitude, Longitude longitude) : this(latitude.toSignedDecimal(), longitude.toSignedDecimal()) { }
+
+        public Position(Point point) : this(point.Y, point.X) { }
+
+        public Position(double latitude, double longitude)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
         }
 
-        public Position(double latitude, double longitude)
-        {
-            SetPosition(latitude, null, longitude, null);
-        }
 
-        public Position(double latitude, NorthSouth latDir, double longitude, EastWest lonDir)
-        {
-            SetPosition(latitude, latDir, longitude, lonDir);
-        }
-
-
-        protected void SetPosition(Double latitude, NorthSouth? latDir, Double longitude, EastWest? lonDir)
-        {
-            if (latDir != null)
-            {
-                this.Latitude = new Latitude(latitude, (NorthSouth)latDir);
-            }
-            else
-            {
-                this.Latitude = new Latitude(latitude);
-            }
-
-            if (lonDir != null)
-            {
-                this.Longitude = new Longitude(longitude, (EastWest)lonDir);
-            }
-            else
-            {
-                this.Longitude = new Longitude(longitude);
-            }
-        }
 
         public override string ToString()
         {

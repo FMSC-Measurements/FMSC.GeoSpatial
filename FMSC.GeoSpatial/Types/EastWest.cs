@@ -8,7 +8,7 @@ namespace FMSC.GeoSpatial
         West = 1
     }
 
-    public static class EastWestExtentions
+    public static class EastWestEx
     {
         public static String ToStringAbv(this EastWest eastWest)
         {
@@ -39,6 +39,7 @@ namespace FMSC.GeoSpatial
 
             throw new Exception("Unknown EastWest");
         }
-    }
 
+        public static EastWest FromLongitude(double longitude) => longitude >= 0 ? EastWest.East : EastWest.West;
+    }
 }

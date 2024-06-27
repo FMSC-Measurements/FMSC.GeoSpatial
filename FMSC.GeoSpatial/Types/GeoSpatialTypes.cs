@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace FMSC.GeoSpatial.Types
+namespace FMSC.GeoSpatial
 {
-    public static class GeoSpatialTypes
+    public static partial class GeoSpatialTypes
     {
         public static NorthSouth ParseNorthSouth(String value)
         {

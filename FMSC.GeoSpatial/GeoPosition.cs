@@ -1,5 +1,4 @@
-﻿using FMSC.GeoSpatial.Types;
-using System;
+﻿using System;
 
 namespace FMSC.GeoSpatial
 {
@@ -29,16 +28,6 @@ namespace FMSC.GeoSpatial
 
         public GeoPosition(double latitude, double longitude, double elevation, UomElevation uomElevation)
             : base(latitude, longitude)
-        {
-            this.Elevation = elevation;
-            this.UomElevation = uomElevation;
-        }
-
-        public GeoPosition(double latitude, NorthSouth latDir, double longitude, EastWest lonDir)
-            : base(latitude, latDir, longitude, lonDir) { }
-
-        public GeoPosition(double latitude, NorthSouth latDir, double longitude, EastWest lonDir, double elevation, UomElevation uomElevation)
-            : base(latitude, latDir, longitude, lonDir)
         {
             this.Elevation = elevation;
             this.UomElevation = uomElevation;

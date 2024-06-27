@@ -23,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="SharpProj" Version="9.4000.278" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="FMSC.Core">
       <HintPath>..\..\libs\FMSC.Core.dll</HintPath>
     </Reference>

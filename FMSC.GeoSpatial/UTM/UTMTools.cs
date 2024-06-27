@@ -7,12 +7,7 @@ namespace FMSC.GeoSpatial.UTM
     {
         public static UTMCoords ConvertLatLonToUTM(Position position, int targetUTM = 0)
         {
-            return ConvertLatLonToUTM(position.Latitude, position.Longitude, targetUTM);
-        }
-        
-        public static UTMCoords ConvertLatLonToUTM(Latitude latitude, Longitude longitude, int targetUTM = 0)
-        {
-            return ConvertLatLonSignedDecToUTM(latitude.toSignedDecimal(), longitude.toSignedDecimal(), targetUTM);
+            return ConvertLatLonSignedDecToUTM(position.Latitude, position.Longitude, targetUTM);
         }
 
         public static UTMCoords ConvertLatLonSignedDecToUTM(double latitude, double longitude, int targetUTM = 0)
@@ -84,7 +79,7 @@ namespace FMSC.GeoSpatial.UTM
                 UTMNorthing += 10000000.0; //10000000 meter offset for southern hemisphere
 
 
-            return new UTMCoords(UTMEasting, UTMNorthing, Zone);
+            return new UTMCoords(UTMEasting, UTMNorthing, Datum.WGS84, Zone);
         }
 
         public static UTMCoords ShiftZones(double utmX, double utmY, int targetZone, int oldZone)

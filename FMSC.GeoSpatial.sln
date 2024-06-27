@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2050
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMSC.GeoSpatial", "FMSC.GeoSpatial\FMSC.GeoSpatial.csproj", "{6420FA5E-50E3-4938-A4EE-8CE7E6E529A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FMSC.GeoSpatial", "FMSC.GeoSpatial\FMSC.GeoSpatial.csproj", "{6420FA5E-50E3-4938-A4EE-8CE7E6E529A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoSpatialTests", "GeoSpatialTests\GeoSpatialTests.csproj", "{366982AF-8498-40F2-BAD0-CAD0D63C1C67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6420FA5E-50E3-4938-A4EE-8CE7E6E529A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6420FA5E-50E3-4938-A4EE-8CE7E6E529A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6420FA5E-50E3-4938-A4EE-8CE7E6E529A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366982AF-8498-40F2-BAD0-CAD0D63C1C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366982AF-8498-40F2-BAD0-CAD0D63C1C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366982AF-8498-40F2-BAD0-CAD0D63C1C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366982AF-8498-40F2-BAD0-CAD0D63C1C67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

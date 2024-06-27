@@ -1,6 +1,4 @@
-﻿using FMSC.GeoSpatial.Types;
-
-namespace FMSC.GeoSpatial.NMEA
+﻿namespace FMSC.GeoSpatial.NMEA
 {
     public class Satellite
     {

@@ -1,5 +1,4 @@
 ﻿using FMSC.GeoSpatial.NMEA.Sentences.Base;
-using FMSC.GeoSpatial.Types;
 using System;
 using System.ComponentModel;
 using System.Globalization;

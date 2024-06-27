@@ -1,5 +1,4 @@
-﻿using FMSC.GeoSpatial.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace FMSC.GeoSpatial
@@ -33,8 +32,8 @@ namespace FMSC.GeoSpatial
             Double lat, lon;
             foreach (Position p in positions)
             {
-                lat = p.Latitude.toSignedDecimal() * Math.PI / 180.0;
-                lon = p.Longitude.toSignedDecimal() * Math.PI / 180.0;
+                lat = p.Latitude * Math.PI / 180.0;
+                lon = p.Longitude * Math.PI / 180.0;
 
                 x += Math.Cos(lat) * Math.Cos(lon);
                 y += Math.Cos(lat) * Math.Sin(lon);
@@ -102,8 +101,8 @@ namespace FMSC.GeoSpatial
             Double lat, lon;
             foreach (GeoPosition p in positions)
             {
-                lat = p.Latitude.toSignedDecimal() * Math.PI / 180.0;
-                lon = p.Longitude.toSignedDecimal() * Math.PI / 180.0;
+                lat = p.Latitude * Math.PI / 180.0;
+                lon = p.Longitude * Math.PI / 180.0;
 
                 x += Math.Cos(lat) * Math.Cos(lon);
                 y += Math.Cos(lat) * Math.Sin(lon);

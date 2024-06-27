@@ -1,6 +1,5 @@
 ﻿using FMSC.GeoSpatial.NMEA.Sentences;
 using FMSC.GeoSpatial.NMEA.Sentences.Base;
-using FMSC.GeoSpatial.Types;
 using FMSC.GeoSpatial.UTM;
 using System;
 using System.Collections.Generic;
