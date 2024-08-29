@@ -4,8 +4,8 @@ namespace FMSC.GeoSpatial
 {
     public enum Datum
     {
-        WGS84 = 0,
-        NAD83 = 1,
+        NAD83 = 0,
+        WGS84 = 1,
         NSRS = 2
     }
 
